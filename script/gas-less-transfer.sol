@@ -9,11 +9,7 @@ import "@openzeppelin/contracts/access/Ownable.sol";
 import "@openzeppelin/contracts/token/ERC20/extensions/ERC20Permit.sol";
 
 contract MyToken is ERC20, ERC20Burnable, ERC20Pausable, Ownable, ERC20Permit {
-    constructor(address initialOwner)
-        ERC20("MyToken", "MTK")
-        Ownable(initialOwner)
-        ERC20Permit("MyToken")
-    {}
+    constructor(address initialOwner) ERC20("MyToken", "MTK") Ownable(initialOwner) ERC20Permit("MyToken") {}
 
     function pause() public onlyOwner {
         _pause();
@@ -29,10 +25,7 @@ contract MyToken is ERC20, ERC20Burnable, ERC20Pausable, Ownable, ERC20Permit {
 
     // The following functions are overrides required by Solidity.
 
-    function _update(address from, address to, uint256 value)
-        internal
-        override(ERC20, ERC20Pausable)
-    {
+    function _update(address from, address to, uint256 value) internal override(ERC20, ERC20Pausable) {
         super._update(from, to, value);
     }
 }

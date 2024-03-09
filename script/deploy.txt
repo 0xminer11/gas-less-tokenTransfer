@@ -1,0 +1,7 @@
+
+1] To deploy MyToken Contract
+
+forge create MyToken 
+--private-key privateKey  
+--constructor-args address  
+--rpc-url  https://rpc-mumbai.maticvigil.com
